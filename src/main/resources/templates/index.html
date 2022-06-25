@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AddUser</title>
+<style>
+body{background:slategray;color:white;}
+.main{text-align:center;margin:0 auto;witdh:50%;}
+input[type=submit]{align:center; margin:0 auto;display:block;}
+</style>
+</head>
+<body>
+		<div class="main">
+		<h1>WELCOME TO Add User SERVICE</h1>
+		<form name="add" action="/addUser" method="post">
+			<table border="1">
+				<tr><th colspan="2">Add User</th></tr>
+				<tr><td>User Id</td><td><input type="text" name="userId" requred/></td></tr>
+				<tr><td>First Name</td><td><input type="text" name="firstName" required/></td></tr>
+				<tr><td>Last Name</td><td><input type="text" name="lastName" required/></td></tr>
+				<tr><td>Email</td><td><input type="text" name="email" required/></td></tr>
+				<tr><td>Mobile Number</td><td><input type="text" name="mobileNo" required/></td></tr>
+				<tr><td>Address</td><td><input type="text" name="address" required/></td></tr>
+				<tr><td>ID Proof</td><td><input type="text" name="idProof" required/></td></tr>
+				<tr><td>Account type</td><td><input type="text" name="accountType" required/></td></tr>
+				<tr><td colspan="2"><input type="submit" name="submit" value="submit"/></td></tr> 
+			</table>
+		</form>
+		</div>
+</body>
+</html>
