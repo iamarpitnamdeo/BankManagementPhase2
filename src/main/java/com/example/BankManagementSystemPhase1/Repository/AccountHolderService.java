@@ -18,5 +18,8 @@ public class AccountHolderService {
 		return aAccountHolderRepository.save(accountHolder);
 	}
 	
-
+	public AccountHolder findByEmail(String email)
+	{
+		return aAccountHolderRepository.findByEmail(email);
+	}
 }

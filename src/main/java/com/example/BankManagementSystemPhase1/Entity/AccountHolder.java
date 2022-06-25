@@ -32,7 +32,6 @@ public class AccountHolder {
 	public AccountHolder() {
 		
 	}
-	
 	public AccountHolder(String firstName, String lastName, String email, String password, int mobileNo, String address,
 			String idProof, String accountType) {
 		super();
@@ -46,6 +45,9 @@ public class AccountHolder {
 		this.accountType = accountType;
 	}
 
+	public Long getId() {
+		return id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

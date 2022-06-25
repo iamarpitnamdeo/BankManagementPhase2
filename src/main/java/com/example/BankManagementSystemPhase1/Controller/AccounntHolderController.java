@@ -2,6 +2,7 @@ package com.example.BankManagementSystemPhase1.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,19 +19,22 @@ public class AccounntHolderController {
 	@Autowired
 	AccountHolderService  accountHolderService;
 	@GetMapping("/")
-	public String index() {
+	public String viewHomePage() {
 		return "index";
 	}
-	@PostMapping("/addUser")
-	public String createUser(@ModelAttribute("userId")String userId,@ModelAttribute("firstName")String firstName,
-			@ModelAttribute("lastName") String lastName,@ModelAttribute("email")String email,
-			@ModelAttribute("mobileNo") String mobileNo,@ModelAttribute("address") String address,
-			@ModelAttribute("idProof")String idProof,@ModelAttribute("accountType")String accountType){
-		AccountHolder accountHolder = new AccountHolder(userId,firstName,lastName,email,Integer.valueOf(mobileNo),address,idProof,accountType);
+	@GetMapping("/register")
+	public String showSignUpForm(Model model)
+	{
+		model.addAttribute("accHolder", new AccountHolder());
+		return "signup_form";
+	}
+	@PostMapping("/process_register")
+	public String processRegistraion(AccountHolder accHolder){
+		AccountHolder accountHolder = accHolder;
 		AccountHolder saveUser =  accountHolderService.addUser(accountHolder);
 		if(saveUser!=null)
 		{
-			return "login";
+			return "register_sucess";
 		}
 		else
 		{
@@ -38,12 +42,12 @@ public class AccounntHolderController {
 		}
 	}
 	
-
-
-	@RequestMapping("/")
-	public String check() {
-		System.out.println("Check method working");
-		return "Check method working";
+	@GetMapping("/list_users")
+	public String viewUsersList() {
+		return "users";
 	}
+	
+
+
 
 }
